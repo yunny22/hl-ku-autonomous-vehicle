@@ -1,0 +1,14 @@
+# Copy to a local ignored file and fill approved provider settings outside
+# this repository.  Never commit credentials.
+ntrip_client:
+  ros__parameters:
+    enabled: false
+    host: ""
+    port: 0
+    mountpoint: ""
+    username: ""
+    password: ""
+    tls: false
+    gga_period_sec: 5.0
+    reconnect_sec: 3.0
+    rtcm_idle_timeout_sec: 3.0

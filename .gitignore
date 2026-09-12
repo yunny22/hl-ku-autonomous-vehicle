@@ -1,0 +1,38 @@
+# ROS 2 and Python build output
+build/
+install/
+log/
+**/__pycache__/
+**/*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local deployment configuration and hardware records
+**/*_private.yaml
+**/*.local.yaml
+**/calibration_record.local.yaml
+**/system.local.yaml
+**/route_*_measured.csv
+**/course_*_vehicle.csv
+**/course_*_smooth.csv
+
+# Recorded routes, bags, datasets, model weights and media
+**/*.bag
+**/*.db3
+**/*.mcap
+**/recordings/
+**/bags/
+**/datasets/
+**/data/raw/
+**/models/
+**/*.pt
+**/*.pth
+**/*.onnx
+**/*.mp4
+**/*.mov
+**/*.avi
+
+# Local tooling
+.vscode/
+.idea/
+*.swp

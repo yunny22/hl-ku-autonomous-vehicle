@@ -1,0 +1,90 @@
+# Safe GPS-only route-test template.  No network or device information is
+# stored here; supply an approved local NTRIP profile separately.
+um982_serial:
+  ros__parameters:
+    enabled: false
+    port: ""
+    baudrate: 115200
+    velocity_timeout_sec: 1.5
+
+gnss_localizer:
+  ros__parameters:
+    datum_configured: false
+    datum_latitude_deg: 0.0
+    datum_longitude_deg: 0.0
+    datum_altitude_m: 0.0
+    base_to_ant1_x_m: 0.0
+    base_to_ant1_y_m: 0.0
+    heading_mount_offset_deg: 0.0
+    allow_single_antenna_heading: false
+
+velocity_selector:
+  ros__parameters:
+    use_lidar_odometry: false
+    gnss_timeout_sec: 1.5
+
+path_tracker:
+  ros__parameters:
+    wheelbase_m: 0.58
+    maximum_steering_rad: 0.48
+    lookahead_base_m: 0.80
+    lookahead_speed_gain_sec: 0.40
+    finish_tolerance_m: 0.50
+    enable_lane_correction: false
+
+mission_manager:
+  ros__parameters:
+    auto_arm: false
+    default_speed_mps: 0.30
+    hill_speed_mps: 0.25
+    maximum_steering_rad: 0.48
+
+vehicle_controller:
+  ros__parameters:
+    kp: 0.0
+    ki: 0.0
+    maximum_duty: 0.30
+    minimum_forward_duty: 0.30
+    maximum_forward_speed_mps: 0.45
+    maximum_reverse_speed_mps: 0.20
+    forward_speeds_mps: [0.10, 0.25, 0.45]
+    forward_duties: [0.08, 0.10, 0.12]
+    reverse_speeds_mps: [0.10, 0.20]
+    reverse_duties: [0.08, 0.10]
+
+safety_supervisor:
+  ros__parameters:
+    require_rtk_fixed: true
+    require_gnss_heading: false
+    require_preflight: true
+    require_perception: false
+    require_camera: false
+    require_lidar: false
+    autonomous_maximum_drive_duty: 0.30
+    autonomous_maximum_steering_rad: 0.48
+    minimum_gnss_satellites: 15
+    maximum_gnss_hdop: 1.5
+    maximum_correction_age_sec: 2.0
+
+nucleo_serial_bridge:
+  ros__parameters:
+    enabled: false
+    port: ""
+    baudrate: 115200
+    send_rate_hz: 20.0
+    command_timeout_sec: 0.20
+    serial_timeout_sec: 0.025
+    drive_command_scale: 100.0
+    maximum_drive_command: 30
+    allow_reverse: false
+    maximum_steering_rad: 0.48
+    steer_left_adc: 2
+    steer_center_adc: 1
+    steer_right_adc: 0
+
+route_recorder:
+  ros__parameters:
+    minimum_spacing_m: 0.20
+    default_speed_mps: 0.30
+    allow_overwrite: false
+    force_finish_tag: true

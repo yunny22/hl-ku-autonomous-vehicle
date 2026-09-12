@@ -1,0 +1,188 @@
+# Public, hardware-disabled baseline.  Copy this file to a local deployment
+# profile and fill measured values only after the vehicle safety checklist.
+um982_serial:
+  ros__parameters:
+    enabled: false
+    port: ""
+    baudrate: 115200
+    frame_id: gnss_main
+    require_checksum: true
+    configure_receiver: false
+    startup_commands: []
+    heading_timeout_sec: 0.30
+    position_timeout_sec: 0.30
+    velocity_timeout_sec: 0.30
+
+ntrip_client:
+  ros__parameters:
+    enabled: false
+    host: ""
+    port: 0
+    mountpoint: ""
+    username: ""
+    password: ""
+    tls: false
+    gga_period_sec: 5.0
+    reconnect_sec: 3.0
+    rtcm_idle_timeout_sec: 3.0
+
+gnss_localizer:
+  ros__parameters:
+    datum_configured: false
+    datum_latitude_deg: 0.0
+    datum_longitude_deg: 0.0
+    datum_altitude_m: 0.0
+    map_frame: map
+    base_to_ant1_x_m: 0.0
+    base_to_ant1_y_m: 0.0
+    heading_mount_offset_deg: 0.0
+    require_rtk_fixed: true
+    fixed_position_sigma_m: 0.02
+    fixed_heading_sigma_deg: 0.5
+
+velocity_selector:
+  ros__parameters:
+    lidar_odometry_topic: /lidar/odometry
+    lidar_timeout_sec: 0.25
+    gnss_timeout_sec: 0.40
+    gnss_preferred_above_mps: 0.35
+
+camera_perception:
+  ros__parameters:
+    image_topic: /camera/image_raw
+    lane_roi_top_ratio: 0.55
+    lane_meters_per_pixel: 0.005
+    minimum_lane_pixels: 500
+    stop_line_projection_ratio: 0.40
+    traffic_roi: [0.35, 0.02, 0.65, 0.45]
+    traffic_min_ratio: 0.015
+
+lidar_perception:
+  ros__parameters:
+    scan_topic: /scan
+    vehicle_half_width_m: 0.35
+    corridor_margin_m: 0.15
+    lidar_to_front_bumper_m: 0.15
+    detection_range_m: 8.0
+    obstacle_trigger_m: 5.0
+    minimum_cluster_points: 3
+    gap_max_angle_deg: 55.0
+    avoidance_gain: 0.65
+    maximum_avoidance_steering_rad: 0.30
+
+perception_aggregator:
+  ros__parameters:
+    camera_timeout_sec: 0.30
+    lidar_timeout_sec: 0.30
+    end_signal_timeout_sec: 0.50
+
+path_tracker:
+  ros__parameters:
+    route_file: ""
+    route_calibrated: false
+    wheelbase_m: 0.58
+    lookahead_base_m: 0.65
+    lookahead_speed_gain_sec: 0.45
+    maximum_steering_rad: 0.48
+    lane_offset_gain: 0.30
+    lane_heading_gain: 0.45
+    minimum_lane_confidence: 0.55
+    enable_lane_correction: true
+    minimum_lookahead_m: 0.60
+    maximum_lookahead_m: 1.80
+    curvature_lookahead_gain_m: 0.60
+    heading_weight_m: 0.60
+    maximum_heading_error_rad: 2.10
+    projection_backtrack_m: 0.30
+    projection_search_ahead_m: 3.0
+    initial_search_distance_m: 5.0
+    maximum_pose_jump_m: 2.0
+    maximum_tracking_error_m: 1.0
+    maximum_steering_rate_rad_s: 0.60
+    steering_settle_threshold_rad: 0.20
+    maximum_lateral_acceleration_mps2: 0.30
+    pose_timeout_sec: 0.50
+    velocity_timeout_sec: 1.5
+
+mission_manager:
+  ros__parameters:
+    auto_arm: false
+    default_speed_mps: 1.0
+    hill_stop_s_m: 0.0
+    hill_hold_sec: 3.2
+    hill_speed_mps: 0.7
+    dummy_trigger_m: 4.0
+    dummy_hold_sec: 3.2
+    traffic_stop_trigger_m: 2.0
+    maximum_steering_rad: 0.48
+    path_command_timeout_sec: 0.20
+
+vehicle_controller:
+  ros__parameters:
+    kp: 0.10
+    ki: 0.04
+    integral_limit: 2.0
+    maximum_duty: 0.75
+    maximum_forward_speed_mps: 1.50
+    maximum_reverse_speed_mps: 0.70
+    deadband_speed_mps: 0.03
+    nominal_voltage: 22.2
+    forward_speeds_mps: [0.25, 0.60, 1.00, 1.50]
+    forward_duties: [0.18, 0.27, 0.38, 0.55]
+    reverse_speeds_mps: [0.20, 0.40, 0.70]
+    reverse_duties: [0.20, 0.29, 0.43]
+    command_timeout_sec: 0.25
+    velocity_timeout_sec: 0.40
+    mission_timeout_sec: 0.30
+    hill_hold_enabled: false
+    hill_hold_duty: 0.0
+
+safety_supervisor:
+  ros__parameters:
+    drive_enabled: false
+    route_calibrated: false
+    require_rtk_fixed: true
+    require_gnss_heading: true
+    require_perception: true
+    require_camera: true
+    require_lidar: true
+    require_preflight: true
+    manual_test_mode: false
+    autonomous_maximum_drive_duty: 0.75
+    autonomous_maximum_steering_rad: 0.48
+    manual_maximum_drive_duty: 0.20
+    manual_maximum_steering_rad: 0.35
+    raw_command_timeout_sec: 0.20
+    gnss_timeout_sec: 0.40
+    pose_timeout_sec: 0.40
+    feedback_timeout_sec: 0.30
+    perception_timeout_sec: 0.35
+    mission_timeout_sec: 0.30
+    preflight_timeout_sec: 2.0
+    emergency_distance_m: 0.75
+    maximum_gnss_hdop: 1.5
+    maximum_correction_age_sec: 2.0
+    minimum_gnss_satellites: 8
+
+nucleo_serial_bridge:
+  ros__parameters:
+    enabled: false
+    port: ""
+    baudrate: 115200
+    send_rate_hz: 20.0
+    command_timeout_sec: 0.20
+    serial_timeout_sec: 0.025
+    drive_command_scale: 100.0
+    maximum_drive_command: 12
+    allow_reverse: false
+    maximum_steering_rad: 0.48
+    steer_left_adc: 2
+    steer_center_adc: 1
+    steer_right_adc: 0
+
+route_recorder:
+  ros__parameters:
+    minimum_spacing_m: 0.20
+    default_speed_mps: 0.30
+    allow_overwrite: false
+    force_finish_tag: true
