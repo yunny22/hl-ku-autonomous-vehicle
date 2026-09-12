@@ -37,7 +37,7 @@
 | Route smoothing and continuous tracking | PERSONAL evidence | Selected commit `2f88330` is authored by `yunny22` and adds the route work. |
 | Vehicle platform, GNSS, perception, mission and firmware integration | CO-DEVELOPED / TEAM | Source is from the team repository and history contains multiple contributors. |
 | ROS 2, NumPy, SciPy, pyserial and other runtime packages | THIRD-PARTY | Declared dependencies; not redistributed here. |
-| Real routes, calibration and deployment settings | TEAM / LOCAL DATA | Removed from the staging tree pending permission and safe replacement. |
+| Real routes, calibration and deployment settings | TEAM / LOCAL DATA | Excluded from the public release; deployment-specific files remain outside this tree. |
 
 ## Sanitization
 
@@ -49,7 +49,7 @@ model weights, bags, private credentials or absolute user paths.
 
 ## Validation performed
 
-- ROS 2 package build and Python test suite are run in the staging tree.
+- ROS 2 package build and Python test suite are run in the public release tree.
 - NUCLEO control module is compiled with `gcc -Wall -Wextra -Werror` and its host test
   is executed.
 - Launch files, YAML and package metadata are checked for syntax.
