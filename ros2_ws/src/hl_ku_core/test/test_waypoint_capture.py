@@ -13,8 +13,8 @@ def _sample(**overrides):
     values = {
         "received_monotonic_sec": 10.0,
         "stamp_sec": 1000.0,
-        "latitude_deg": 37.0,
-        "longitude_deg": 127.0,
+        "latitude_deg": 1.0,
+        "longitude_deg": 2.0,
         "altitude_m": 50.0,
         "fix_type": 4,
         "position_valid": True,
@@ -42,8 +42,8 @@ def test_average_and_route_are_referenced_to_first_waypoint():
     first = average_samples([_sample(), _sample(stamp_sec=1000.1)])
     second = average_samples(
         [
-            _sample(latitude_deg=37.00001, stamp_sec=1001.0),
-            _sample(latitude_deg=37.00001, stamp_sec=1001.1),
+            _sample(latitude_deg=1.00001, stamp_sec=1001.0),
+            _sample(latitude_deg=1.00001, stamp_sec=1001.1),
         ]
     )
     route = build_route_points([first, second], 0.3)
@@ -59,7 +59,7 @@ def test_spacing_helper_handles_duplicate_and_close_waypoints_without_route_erro
     first = average_samples([_sample()])
     duplicate = average_samples([_sample(stamp_sec=1001.0)])
     close = average_samples(
-        [_sample(longitude_deg=127.0000001, stamp_sec=1002.0)]
+        [_sample(longitude_deg=2.0000001, stamp_sec=1002.0)]
     )
 
     assert waypoint_spacing_m(first, duplicate) == pytest.approx(0.0)
