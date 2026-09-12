@@ -4,7 +4,7 @@
   <version>0.1.0</version>
   <description>GNSS-first autonomous driving foundation for HL FMA 1/5.</description>
   <maintainer email="hl-ku@example.com">HL KU Team</maintainer>
-  <license>Apache-2.0</license>
+  <license>UNLICENSED</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
 

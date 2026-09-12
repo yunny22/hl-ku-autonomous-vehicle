@@ -1,5 +1,9 @@
 # HL_KU Autonomous Vehicle
 
+This repository is provided for portfolio and research demonstration purposes.
+No separate open-source reuse license is granted; third-party dependencies keep
+their own terms.
+
 자작자동차 대회를 위해 개발한 ROS 2 기반 실차 자율주행 소프트웨어의 공개용
 staging snapshot이다. Henes T8 Sports 플랫폼에 NUCLEO-H743ZI2 차량 인터페이스를
 연결하고, UM982 듀얼 안테나 RTK GNSS에서 얻은 위치·방향·속도를 local ENU 좌표로

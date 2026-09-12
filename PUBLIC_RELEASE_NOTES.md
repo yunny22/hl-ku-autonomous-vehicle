@@ -58,9 +58,9 @@ model weights, bags, private credentials or absolute user paths.
 
 ## Remaining review items
 
-- Select the final project license before making a repository public. Team scope
-  and attribution boundaries are already documented and publication consent is
-  confirmed.
+- Package metadata is `UNLICENSED`; this portfolio repository grants no separate
+  open-source reuse license. Team scope and attribution boundaries are
+  documented and publication consent is confirmed.
 - Supply deployment-local GNSS, NUCLEO, calibration and route files outside this tree.
 - YOLO obstacle perception and mission integration remain ongoing and require a later
   reviewed release.

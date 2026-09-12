@@ -25,7 +25,7 @@ setup(
     maintainer="HL KU Team",
     maintainer_email="hl-ku@example.com",
     description="GNSS-first autonomous driving foundation for HL FMA 1/5.",
-    license="Apache-2.0",
+    license="UNLICENSED",
     entry_points={
         "console_scripts": [
             "um982_serial = hl_ku_core.um982_serial_node:main",
