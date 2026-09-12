@@ -5,7 +5,7 @@ No separate open-source reuse license is granted; third-party dependencies keep
 their own terms.
 
 자작자동차 대회를 위해 개발한 ROS 2 기반 실차 자율주행 소프트웨어의 공개용
-staging snapshot이다. Henes T8 Sports 플랫폼에 NUCLEO-H743ZI2 차량 인터페이스를
+정리본이다. Henes T8 Sports 플랫폼에 NUCLEO-H743ZI2 차량 인터페이스를
 연결하고, UM982 듀얼 안테나 RTK GNSS에서 얻은 위치·방향·속도를 local ENU 좌표로
 변환했다. 기록한 전역 경로는 자연 cubic spline으로 다듬은 뒤 연속적인
 `RouteFollower`와 Pure Pursuit가 추종하도록 구성했다.
@@ -16,7 +16,7 @@ staging snapshot이다. Henes T8 Sports 플랫폼에 NUCLEO-H743ZI2 차량 인�
 연속 경로 추종 → 차량 제어**의 흐름으로 연결된다. ROS 2 노드, 팀 전용 메시지,
 NUCLEO 펌웨어와 회귀 테스트를 한 저장소에서 확인할 수 있다.
 
-이 공개본은 소스 구조와 재현 가능한 예시만 담은 검토용 snapshot이다. 실제 차량을
+이 공개본은 소스 구조와 재현 가능한 예시만 담은 공개용 검토본이다. 실제 차량을
 움직이려면 배포 환경에서 별도의 센서 장치 경로, 기준점, 경로, 조향·구동 보정,
 네트워크 설정과 안전 점검을 작성해야 한다. 기본 설정은 하드웨어 출력을 비활성화한다.
 
@@ -125,5 +125,5 @@ RouteFollower + Pure Pursuit, NUCLEO 인터페이스와 실제 차량 경로 추
 - 공개본 기준 source branch: `codex/smooth-route-tracking`
 - 공개본 기준 source commit: `2f88330`
 
-원본 팀 코드와 외부 의존성의 공개·라이선스 범위는 팀과 함께 최종 검토해야 한다.
-공개본은 원본 Git history나 remote를 포함하지 않는 별도 staging snapshot이다.
+팀 공개 동의가 확인된 공개용 정리본이며, 외부 의존성은 각자의 라이선스 조건을 따른다.
+공개본은 원본 Git history나 remote를 포함하지 않는 별도 공개 릴리스이다.
